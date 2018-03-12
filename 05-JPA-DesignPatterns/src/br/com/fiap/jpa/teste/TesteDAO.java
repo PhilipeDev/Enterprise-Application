@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.fiap.jpa.dao.ChurrosDAO;
 import br.com.fiap.jpa.dao.impl.ChurrosDAOImpl;
@@ -25,7 +24,8 @@ public class TesteDAO {
 		ChurrosDAO dao = new ChurrosDAOImpl(em);
 		Churros churros = new Churros("Chocolate", 5.55f, TipoPedido.VIAGEM);
 		
-		//Cadastrar
+		
+		//Cadastrar churros
 		try {
 			dao.cadastrar(churros);
 			dao.commit();
@@ -65,5 +65,8 @@ public class TesteDAO {
 		} catch (Exception e) {
 			System.err.println("Erro ao remover o churros.");
 		}
+		
+		em.close();
+		fabrica.close();
 	}
 }

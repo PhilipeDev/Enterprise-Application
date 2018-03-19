@@ -14,34 +14,35 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_ALUNO")
-@SequenceGenerator(name="aluno",sequenceName="SEQ_T_ALUNO",allocationSize=1)
 public class Aluno {
 
 	@Id
 	@Column(name="cd_aluno")
-	@GeneratedValue(generator="aluno", strategy=GenerationType.SEQUENCE)
 	private String rm;
 	
 	@Column(name="nm_aluno", length=100, nullable=false)
 	private String nome;
 
+	//Unidimensional
+	//ManyToOne pois temos varios alunos para um grupo.
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="fk_cd_grupo")
 	private GrupoAM grupo;
 	
 	
 	//Construtor Cheio
-	public Aluno(String rm, String nome) {
+	public Aluno(String rm, String nome, GrupoAM grupo) {
+		super();
 		setRm(rm);
 		setNome(nome);
+		setGrupo(grupo);
 	}
-	
-	
+
 	//Construtor Vazio
 	public Aluno() {
 		super();
 	}
-	
+
 
 	//Getter's and Setter's
 	public String getRm() {

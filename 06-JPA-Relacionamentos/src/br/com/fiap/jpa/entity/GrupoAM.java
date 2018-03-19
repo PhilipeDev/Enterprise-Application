@@ -31,13 +31,19 @@ public class GrupoAM {
 	@Column(name="vl_nota")
 	private float nota;
 	
+	
+	//Propriedade fetch serve para busca, eager e lazy
 	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="fk_cd_projeto", nullable=false)
 	private ProjetoAM projeto;
 
+	//MappedBy não importa o tipo de relação "onetoone, manytoMany"
+	//Lista de alunos pois temos varios alunos
+	//OneToMany pois temos um grupo para varios alunos.
 	@OneToMany(mappedBy="grupo", cascade=CascadeType.PERSIST)
 	private List<Aluno> alunos = new ArrayList<>();
 	
+	//Método utilizado para oneToMany
 	public void adicionarAlunos(Aluno aluno) {
 		alunos.add(aluno);
 		aluno.setGrupo(this);

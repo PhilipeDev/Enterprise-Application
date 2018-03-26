@@ -31,7 +31,10 @@ public class Campeonato {
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinTable(name="T_TIME_CAMPEONATO",
+				//JoinColumn você referencia o atributo da tabela que você está.
 				joinColumns=@JoinColumn(name="cd_campeonato"),
+				//InverseJoinColumn referencia o atributo da tabela 
+				//da outra parte do relacionamento
 				inverseJoinColumns=@JoinColumn(name="cd_time"))
 	List<Time> times = new ArrayList<>();
 

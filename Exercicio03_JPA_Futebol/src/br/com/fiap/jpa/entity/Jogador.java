@@ -28,6 +28,7 @@ public class Jogador {
 	
 	//ManyToOne pois temos varios jogadores para um time.
 	@ManyToOne
+	//JoinColumn ele é opcional, serve para renomear a coluna
 	@JoinColumn(name="fk_cd_time")
 	private Time time;
 

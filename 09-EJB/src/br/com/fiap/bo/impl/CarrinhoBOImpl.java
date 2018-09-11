@@ -8,7 +8,7 @@ import javax.ejb.Stateful;
 import br.com.fiap.bo.CarrinhoBO;
 
 @Stateful
-public class CarrinhoBOImpl implements CarrinhoBO{
+public class CarrinhoBOImpl implements CarrinhoBO {
 
 	private List<String> lista = new ArrayList<String>();
 	
@@ -19,8 +19,7 @@ public class CarrinhoBOImpl implements CarrinhoBO{
 
 	@Override
 	public List<String> listar() {
-		
 		return lista;
 	}
-
+	
 }

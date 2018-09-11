@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 @Remote
 public interface ClienteBO {
-	
+
 	int calcularIdade(Calendar idade);
+	
 }

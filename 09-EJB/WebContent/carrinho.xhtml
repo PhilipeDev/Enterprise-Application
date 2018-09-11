@@ -4,19 +4,22 @@
       xmlns:h="http://java.sun.com/jsf/html" 
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>Cliente</title>
+	<title>Carrinho</title>
 </h:head>
 <h:body>
 	
-	<h1>Cálculo da Idade</h1>
+	<h1>Carrinho</h1>
 	<h:form>
-		<h:inputText value="#{clienteBean.dataNascimento.time}">
-			<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
-		</h:inputText>
-		<h:commandButton action="#{clienteBean.calcular()}" value="Calcular" />
-		<h:outputText value="#{clienteBean.idade}" />
+		<h:inputText value="#{carrinhoBean.churro}" />
+		<h:commandButton action="#{carrinhoBean.adicionar()}" 
+				value="Add" />
 	</h:form>
+	<h:dataTable value="#{carrinhoBean.lista}" var="c">
+		<h:column>
+			<f:facet name="header">Sabor</f:facet>
+			#{c}
+		</h:column>
+	</h:dataTable>
+	
 </h:body>   
 </html>
-
-

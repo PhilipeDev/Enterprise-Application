@@ -10,7 +10,7 @@ import br.com.fiap.bo.ClienteBO;
 
 @ManagedBean
 public class ClienteBean {
-	
+
 	private Calendar dataNascimento;
 	private int idade;
 	
@@ -21,23 +21,25 @@ public class ClienteBean {
 	private void init() {
 		dataNascimento = Calendar.getInstance();
 	}
-	
-	public void calcular() {//clique botão
+
+	public void calcular() { //clique do botão
 		idade = bo.calcularIdade(dataNascimento);
 	}
 	
-	//Getter's and Setter's
 	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
+
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+
 	public int getIdade() {
 		return idade;
 	}
+
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	
+
 }
